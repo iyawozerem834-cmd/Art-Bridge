@@ -5,45 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>艺智桥 ArtBridge - Creative Ecosystem</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               metal: {
-                dark: '#0a0a0c',
-                card: 'rgba(255, 255, 255, 0.03)',
-                border: 'rgba(255, 255, 255, 0.1)',
-                highlight: 'rgba(255, 255, 255, 0.2)',
+                dark: '#0f1014',
+                surface: 'rgba(255, 255, 255, 0.05)',
+                border: 'rgba(255, 255, 255, 0.15)',
+                chrome: '#e2e8f0',
               },
               holo: {
                 cyan: '#00f2ea',
-                pink: '#ff0050',
-                purple: '#7000ff',
-                silver: '#e2e8f0',
+                purple: '#9d00ff',
+                pink: '#ff0080',
+                silver: '#cbd5e1',
               }
             },
             fontFamily: {
               sans: ['Outfit', 'Noto Sans SC', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
             },
             backgroundImage: {
-              'liquid-metal': 'linear-gradient(135deg, #e2e8f0 0%, #94a3b8 50%, #e2e8f0 100%)',
-              'holo-gradient': 'linear-gradient(90deg, #00f2ea, #7000ff, #ff0050)',
+              'liquid-silver': 'linear-gradient(135deg, #e2e8f0 0%, #94a3b8 50%, #e2e8f0 100%)',
+              'holo-gradient': 'linear-gradient(90deg, #00f2ea, #9d00ff, #ff0080)',
+              'glass-shine': 'linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 70%)',
             },
             animation: {
               'float': 'float 6s ease-in-out infinite',
-              'liquid': 'liquid 8s ease-in-out infinite',
-              'shine': 'shine 3s linear infinite',
+              'liquid-morph': 'morph 8s ease-in-out infinite',
+              'shine': 'shine 4s infinite',
               'blink': 'blink 4s infinite',
+              'blob': 'blob 10s infinite',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-10px)' },
               },
-              liquid: {
+              morph: {
                 '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
                 '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
               },
@@ -54,6 +55,12 @@
               blink: {
                 '0%, 90%, 100%': { transform: 'scaleY(1)' },
                 '95%': { transform: 'scaleY(0.1)' },
+              },
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
               }
             }
           },
@@ -62,36 +69,42 @@
     </script>
     <style>
       body {
-        background-color: #0a0a0c;
+        background-color: #0f1014;
         color: #f1f5f9;
         font-family: 'Outfit', 'Noto Sans SC', sans-serif;
         overflow-x: hidden;
       }
-      /* Liquid Metal Scrollbar */
+      
       ::-webkit-scrollbar {
         width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #0a0a0c; 
+        background: #0f1014; 
       }
       ::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #7000ff, #00f2ea); 
+        background: #334155; 
         border-radius: 10px;
       }
       
       .glass-metal {
         background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
       }
-      
-      .text-chrome {
-        background: linear-gradient(to bottom, #ffffff 0%, #a0a0a0 50%, #ffffff 100%);
+
+      .text-liquid {
+        background: linear-gradient(180deg, #fff 0%, #cbd5e1 50%, #94a3b8 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        text-shadow: 0px 2px 10px rgba(255,255,255,0.2);
+        text-shadow: 0 0 20px rgba(255,255,255,0.1);
+      }
+      
+      .text-holo {
+        background: linear-gradient(90deg, #00f2ea, #9d00ff, #ff0080);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     </style>
   <script type="importmap">
